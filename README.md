@@ -5,7 +5,7 @@ after this run  command for run backend
 ## node server.js
 
 
-step for run frotend
+step for run frontend
 
 go into the frontend folder and open cmd 
 then run command for the dependencies
