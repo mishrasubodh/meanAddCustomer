@@ -4,21 +4,23 @@
     <mat-card>
       <form class="edit-user-form" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
               <mat-form-field>
-                      <input appBlue autofocus  type="text" matInput placeholder="id" formControlName="id" readonly [(ngModel)]="editabledata._id" >
+                      <input appBlue autofocus  type="text" matInput placeholder="Name" formControlName="Name" readonly [(ngModel)]="editabledata.Name" >
                     </mat-form-field>
           
               <mat-form-field>
-                      <input  autofocus type="text" matInput placeholder="firstname" formControlName="firstname" [(ngModel)]="editabledata.firstName" >
+                      <input  autofocus type="number" matInput placeholder="age" formControlName="age" [(ngModel)]="editabledata.age" >
                     </mat-form-field>
           
               <mat-form-field>
-                      <input  autofocus type="text" matInput placeholder="lastname" formControlName="lastname" [(ngModel)]="editabledata.lastName">
+                      <input  autofocus type="Address" matInput placeholder="Address" formControlName="Address" [(ngModel)]="editabledata.Address">
                     </mat-form-field>
           
         <mat-form-field>
-          <input autofocus  type="text" matInput placeholder="Username" formControlName="username" [(ngModel)]="editabledata.username">
+          <input autofocus  type="number" matInput placeholder="phoneNumber" formControlName="phoneNumber" [(ngModel)]="editabledata.phoneNumber">
         </mat-form-field>
-
+        <mat-form-field>
+          <input autofocus  type="date" matInput placeholder="dateOfBirth" formControlName="dateOfBirth" [(ngModel)]="editabledata.dateOfBirth">
+        </mat-form-field>
         
         <p class="text-center">
           <button type="submit" mat-raised-button color="primary">Save</button>

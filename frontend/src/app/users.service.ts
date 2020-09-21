@@ -13,27 +13,23 @@ export class UsersService {
        "Access-Control-Allow-Origin": "*",
        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
     })
-  
 URL:string ="http://localhost:4000/api/"
   constructor(
     private http:HttpClient,
   )
-   {
-console.log("aaaaaa",this.URL);
-   }
+   {}
    getLogin(user) {
     const URL = this.URL + 'signup';
     return this.http.post(URL, user,{headers:this.httpOptions});
   };
-
   customerAdd(userRegistration){ 
   const URL = this.URL + 'addCustomer';
-  console.log("aaaaaaa",URL);
+  
     return this.http.post(URL, userRegistration,{headers:this.httpOptions});
 };
 
-getallusersdata(){
-const URL = this.URL +'allRejisterData';
+getallCustomersdata(){
+const URL = this.URL +'allCustomerDAta';
 return this.http.get(URL,{headers:this.httpOptions})
 };
 

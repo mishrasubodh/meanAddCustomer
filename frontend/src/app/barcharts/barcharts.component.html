@@ -1,0 +1,16 @@
+
+<div>
+  <button mat-flat-button color="primary" (click)="backtohome()">back to home</button>
+  <h2  class="chart">barchart of customers age</h2>
+  <div class="barchart" style="display: block; width: 600px; height: 600px;" *ngIf="showChart">
+    <canvas baseChart 
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+</div>
+

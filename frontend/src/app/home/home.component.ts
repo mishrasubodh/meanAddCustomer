@@ -50,9 +50,9 @@ export class HomeComponent implements OnInit {
      
     ) {
       const users = Array.from({length: 100});
-    this. getallusersdata();
+    this. getallCustomersdata();
     this.basicservice.telicast.subscribe((data)=>{
-      console.log("ghghgghghghghghghghhghgh",data)
+ 
       this.onlydata= data
     })
      }
@@ -65,20 +65,18 @@ export class HomeComponent implements OnInit {
     this.basicservice.edit(obj)
 
   }
-getallusersdata(){     
-  this.service.getallusersdata().subscribe((data)=>{
-    console.log("22222",data);
+getallCustomersdata(){     
+  this.service.getallCustomersdata().subscribe((data)=>{
     this.dataSource = data;
-    console.log("33333",this.dataSource);
     // this.con.markForCheck();
   })
 }
 
   
 openDialog(id) {
-  console.log("333333333",id)
+
 this.service.getdatabyid(id).then((dataPassed)=>{
- 
+
   const dialogRef = this.dialog.open(EditusermodalComponent, {
     width: '660px',
     height: '490px',
@@ -91,9 +89,9 @@ this.service.getdatabyid(id).then((dataPassed)=>{
 
   dialogRef.afterClosed().subscribe((result) => {
     this.id = result;
-    console.log("33333",this.id);  
+  
     if(this.id!==undefined|| this.id!==null){
-      this.getallusersdata();
+      this.getallCustomersdata();
     }
   //  window.location.reload();
   });
@@ -101,7 +99,7 @@ this.service.getdatabyid(id).then((dataPassed)=>{
 }
 
 deletedata(id){
-  console.log("id in delete page",id)
+ 
   const dialogRef = this.dialog.open(DeleteusermodalComponent, {
     width: '410px',
     height: '200px',
@@ -113,67 +111,21 @@ deletedata(id){
   });
 
   dialogRef.afterClosed().subscribe((result) => {
-    this.id = result;
-    console.log("33333",this.id);  
+    this.id = result; 
    if(this.id !== undefined || this.id !==null){
-    this.getallusersdata();
+    this.getallCustomersdata();
    }
   });
 
 }
-backtologin(){
- this.Router.navigate(['login'])
+backtohome(){
+ this.Router.navigate(['user'])
 }
-gotoregistration(){
-  this.Router.navigate(['registration'])
-}
-
+gotoAddCustomer(){
+  this.Router.navigate(['adCustomer'])
 }
 
+}
 
 
-// @Component({
-//   selector: 'dialogbox',
-//   templateUrl: 'dialogbox.html',
-//   styleUrls: ['dialogbox.scss'],
-// })
-// export class dialogbox {
 
-//   dataSource;
-//   loginForm = this.fb.group({
-//     id:[null],
-//     firstname:[null],
-//     lastname:[null],
-//     username: [null],
-//   });
-//   editabledata: DialogData;
-//   constructor( 
-//     public dialogRef: MatDialogRef<dialogbox>,
-//     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-//     private fb: FormBuilder,
-//      public service:UsersService,
-//      private classCall:HomeComponent
-
-//     ) 
-//     { 
-
-//  this.editabledata = data['dataPassed']
-//  console.log("55555",this.editabledata);
-//     }
-
-//     onSubmit(): void {
-    
-// let obj={
-// "id":this.editabledata['_id'],
-// "firstName":this.editabledata['firstName'],
-// "lastName":this.editabledata['lastName'],
-// "username":this.editabledata['username']
-// }
-//   this.service.putdatabyid(obj).then((data)=>{
-//   })
-//     this.dialogRef.close(); 
-//     this.classCall.getallusersdata(); 
-//   }
- 
-  
-// }

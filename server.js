@@ -9,7 +9,8 @@ var mongoose = require('mongoose');
 port= process.env.PORT || 4000;
 
 //database connection
-mongoose.connect('mongodb://127.0.0.1:27017/students')
+//mongoose.connect('mongodb://127.0.0.1:27017/students')
+mongoose.connect('mongodb://127.0.0.1:27017/customers')
 mongoose.Promise= global.Promise;
 // use for cors error
 app.use(cors());

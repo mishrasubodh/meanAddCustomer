@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { AddCustomerComponent } from './AddCustomer/AddCustomer';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MeterialModule} from './meterial/meterial.module'
@@ -18,13 +17,12 @@ import {BasicService} from './basic.service'
 import {MatPaginator} from '@angular/material/paginator'
 //import {dialogbox } from  './home/home.component'
 import {NgxPaginationModule} from 'ngx-pagination';
-import { RedgreenDirective } from './directivs/redgreen.directive';
-import { BlueDirective } from './directivs/blue.directive';
 import { EditusermodalComponent } from './modal/editusermodal/editusermodal.component';
 import { DeleteusermodalComponent } from './modal/deleteusermodal/deleteusermodal.component';
+import {BarchartsComponent} from './barcharts/barcharts.component'
 import { UsersComponent } from './users/users.component';
 import {GlobalService} from './global.service'
-
+import {ChartsModule} from 'ng2-charts'
 abstract class ChangeDetectorRef {
   abstract markForCheck(): void
   abstract detach(): void
@@ -37,15 +35,13 @@ abstract class ChangeDetectorRef {
 
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegistrationComponent,
+    AddCustomerComponent,
     HomeComponent,
     //dialogbox,
-    RedgreenDirective,
-    BlueDirective,
     EditusermodalComponent,
     DeleteusermodalComponent,
     UsersComponent,
+    BarchartsComponent
     
   ],
   imports: [
@@ -56,7 +52,8 @@ abstract class ChangeDetectorRef {
     MeterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ChartsModule
   ],
   providers: [
     Config,UsersService,HomeComponent,BasicService,GlobalService,
